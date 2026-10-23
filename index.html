@@ -1,30 +1,115 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>我的第一个 AI 软件</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 24px; background: #f5f7fb; color: #172033; font-family: system-ui, sans-serif; }
-    main { width: 100%; text-align: center; }
-    h1 { font-size: clamp(26px, 6vw, 44px); margin: 0 0 28px; }
-    button { border: 0; border-radius: 12px; padding: 14px 28px; background: #3157dc; color: white; font: inherit; font-weight: 600; cursor: pointer; }
-    button:hover { background: #2445ba; }
-    button:focus-visible { outline: 3px solid #172033; outline-offset: 4px; }
-    #message { min-height: 28px; margin: 24px 0 0; color: #187044; font-size: 20px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English Learning Studio</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#22352f;background:#f4f6f3;font-size:14px}*{box-sizing:border-box}body{margin:0}button,input,textarea{font:inherit}button{cursor:pointer}button,input,textarea{border-radius:9px}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #7caa91;outline-offset:3px}button{border:1px solid #dce4de;background:white;color:#294d3c;padding:10px 14px}button:hover:enabled{background:#edf4ef}button:disabled{cursor:not-allowed;color:#88928d;background:#f1f3f1}.primary{background:#285e46;color:white;border-color:#285e46}.primary:hover:enabled{background:#1e4835}header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 32px;border-bottom:1px solid #dce4de;background:#fff}h1{font-size:21px;letter-spacing:-.5px;margin:0 0 5px}p{line-height:1.7}header p{margin:0;color:#718078;font-size:13px}.brand{display:flex;align-items:center;gap:13px}.logo{background:#285e46;color:white;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;font-size:23px}.badge{font-size:11px;color:#61766a;background:#eef3ee;padding:5px 9px;border-radius:20px;display:inline-block}main{display:grid;grid-template-columns:230px minmax(300px,1fr) 290px;gap:20px;padding:24px 28px;max-width:1800px;margin:auto}.panel{background:#fff;border:1px solid #e0e6df;border-radius:15px;overflow:hidden}.sidebar,.vocab{padding:20px}.eyebrow{font-size:11px;letter-spacing:2px;color:#829086;margin:0 0 10px}h2{font-size:16px;margin:0}h3{font-size:14px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px}.muted{color:#78857c;font-size:12px;line-height:1.8}.files{list-style:none;margin:0;padding:0;display:grid;gap:9px}.file{display:block;width:100%;text-align:left;padding:13px;overflow-wrap:anywhere}.file.active{border-color:#77a188;background:#edf5ef}.file small{display:block;color:#77857c;margin-top:6px}.empty-small{padding:20px 0;color:#819085;font-size:13px;line-height:1.9}.privacy{margin-top:28px;padding-top:18px;border-top:1px solid #edf0eb}.reader-head{padding:20px 24px;border-bottom:1px solid #e6ebe5;display:flex;gap:12px;align-items:center;justify-content:space-between}.reader-head h2{overflow-wrap:anywhere}.reader{min-width:0}.canvas{background:#e9eee9;padding:20px;min-height:490px;display:flex;align-items:stretch;justify-content:center}.welcome{background:#fff;max-width:660px;width:100%;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:42px 28px;box-shadow:0 7px 25px #263e2d08}.book{font-size:36px;color:#45775b;background:#edf5ef;width:78px;height:78px;border-radius:22px;display:grid;place-items:center;margin-bottom:22px}.welcome h2{font-size:24px;line-height:1.5}.welcome p{color:#7b877e;max-width:360px}.welcome .badge{margin-top:20px}iframe{width:100%;height:62vh;min-height:440px;border:0;background:white;border-radius:6px}.progress-area{padding:20px 24px}.progress-top{display:flex;justify-content:space-between;gap:12px;align-items:center}progress{width:100%;height:7px;border:0;border-radius:8px;overflow:hidden;margin:14px 0 4px;accent-color:#3b7958}progress::-webkit-progress-bar{background:#e8eee8}progress::-webkit-progress-value{background:#3b7958}input[type=range]{width:100%;accent-color:#3b7958}.fields{display:grid;gap:10px}label{display:block;font-size:12px;color:#66786c}input[type=text],textarea{display:block;width:100%;border:1px solid #dce4de;padding:11px;background:#fbfcfa;margin-top:6px;color:#22352f}textarea{resize:vertical;min-height:72px}.words{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}.word{padding:13px;background:#f6f8f4;border-radius:10px;overflow-wrap:anywhere}.word strong{font-size:16px}.word p{margin:6px 0 10px;white-space:pre-wrap;color:#6d7e71}.word button{padding:5px 9px;font-size:11px}.status{margin:0 28px 24px;padding:12px 18px;border-radius:10px;background:#e7efe7;color:#476351;font-size:12px;line-height:1.7}[hidden]{display:none!important}.notice{font-size:12px;color:#6d7e71;margin:0 0 12px;line-height:1.7}.bottom{max-width:1800px;margin:auto;padding:0 30px 24px;color:#8b958c;font-size:11px;display:flex;justify-content:space-between;gap:12px}@media(max-width:1100px){main{grid-template-columns:190px minmax(280px,1fr)}.vocab{grid-column:1/-1}.fields{grid-template-columns:1fr 1fr;align-items:start}.fields button{align-self:end}.words{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}@media(max-width:650px){header{padding:20px;align-items:flex-start;flex-wrap:wrap}main{padding:16px;grid-template-columns:minmax(0,1fr);gap:16px}.vocab{grid-column:auto}.fields{grid-template-columns:1fr}.canvas{padding:10px;min-height:340px}.welcome{padding:30px 18px}.welcome h2{font-size:21px}.reader-head{padding:16px;flex-wrap:wrap}h1{font-size:18px}.status{margin:0 16px 20px}.sidebar{padding:16px}.privacy{margin-top:14px}.bottom{padding:0 16px 20px}}
+</style>
 </head>
 <body>
-  <main>
-    <h1>我的第一个 AI 软件</h1>
-    <button id="run-button" type="button">点击运行</button>
-    <p id="message" role="status" aria-live="polite"></p>
-  </main>
-  <script>
-    document.getElementById('run-button').addEventListener('click', () => {
-      document.getElementById('message').textContent = 'Codex 运行成功！';
-    });
-  </script>
+<header><div class="brand"><div class="logo" aria-hidden="true">E</div><div><h1>English Learning Studio</h1><p>从一页阅读，开始你的英语学习。</p></div></div><button class="primary" id="import">＋ 导入 PDF</button><input type="file" id="file-input" accept=".pdf,application/pdf" multiple hidden></header>
+<main>
+<aside class="panel sidebar"><p class="eyebrow">MY LIBRARY</p><div class="section-head"><h2>我的文件</h2><span class="badge" id="file-count">0 份</span></div><ul class="files" id="files"></ul><p class="empty-small" id="files-empty">还没有学习资料。<br>点击顶部「导入 PDF」，添加你的第一份文件。</p><div class="privacy"><h3>只在你的设备上</h3><p class="muted">文件不会上传。关闭或刷新网页后，需要重新导入 PDF。进度与生词会尽量保存在当前浏览器中。</p></div></aside>
+<section class="panel reader" aria-label="PDF 阅读区域"><div class="reader-head"><div><p class="eyebrow">READING SPACE</p><h2 id="document-title">阅读工作台</h2></div><button disabled title="第一阶段暂未实现语音朗读">▷ 朗读 · 待开发</button></div><div class="canvas"><div class="welcome" id="welcome"><div class="book" aria-hidden="true">▤</div><h2>让每一次阅读<br>都有新的收获。</h2><p>导入一份英文 PDF，在这里阅读、记录进度，并把遇到的新单词加入收藏。</p><button id="import-empty" class="primary">导入第一份 PDF</button><span class="badge">第一阶段 · 阅读与收藏工作台</span></div><iframe id="pdf-viewer" title="PDF 文件预览（Chrome 内置阅读器）" hidden></iframe></div><div class="progress-area"><p class="notice" id="preview-note" hidden>使用 Chrome 内置 PDF 阅读器预览。若浏览器不支持嵌入预览，可使用下方按钮打开文件；应用暂不能读取 PDF 总页数、选词或自动同步阅读位置。</p><button id="open-pdf" hidden>在新标签页打开 PDF</button><div class="progress-top" style="margin-top:16px"><label for="reading-progress">阅读进度 · 手动记录</label><strong id="progress-value">0%</strong></div><progress id="progress-bar" value="0" max="100" aria-label="已记录阅读进度"></progress><input id="reading-progress" type="range" min="0" max="100" value="0" disabled aria-label="手动设置当前文件阅读进度"><p class="muted">导入文件后拖动滑块记录完成比例。此数值不会随 PDF 翻页自动变化，也不会恢复 PDF 页码。</p></div></section>
+<aside class="panel vocab"><p class="eyebrow">WORD COLLECTION</p><div class="section-head"><h2>生词收藏</h2><span class="badge" id="word-count">0 个</span></div><p class="muted">手动记录新单词与释义。PDF 选词收藏、自动翻译将在后续阶段开发。</p><form class="fields" id="word-form"><label>英文单词或短语<input id="word" type="text" required maxlength="80" placeholder="例如：discover" autocomplete="off"></label><label>中文释义或笔记<textarea id="meaning" maxlength="500" placeholder="例如：发现；探索新的可能"></textarea></label><button class="primary" type="submit">＋ 加入收藏</button></form><ul class="words" id="words"></ul><p class="empty-small" id="words-empty">你的单词本，从第一个新词开始。</p></aside>
+</main>
+<p class="status" id="status" role="status" aria-live="polite">准备就绪。导入 PDF，即可开始学习。</p>
+<footer class="bottom"><span>English Learning Studio</span><span>专注阅读 · 慢慢积累</span></footer>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const storageKey = 'english-learning-studio-v1';
+let saved = { words: [], progress: {} };
+let storageAvailable = true;
+try {
+  const raw = JSON.parse(localStorage.getItem(storageKey) || 'null');
+  if (raw && typeof raw === 'object') {
+    if (Array.isArray(raw.words)) saved.words = raw.words.filter(w => w && typeof w.word === 'string' && typeof w.meaning === 'string');
+    if (raw.progress && typeof raw.progress === 'object' && !Array.isArray(raw.progress)) saved.progress = raw.progress;
+  }
+} catch { storageAvailable = false; }
+const documents = [];
+let current = null;
+function notify(text) { $('status').textContent = text + (storageAvailable ? '' : ' 提醒：浏览器存储不可用，本次数据只保留到页面关闭。'); }
+function persist() { try { localStorage.setItem(storageKey, JSON.stringify(saved)); } catch { storageAvailable = false; } }
+function fileKey(file) { return JSON.stringify([file.name, file.size, file.lastModified]); }
+function progressFor(key) { const n = Number(saved.progress[key]); return Number.isFinite(n) ? Math.min(100, Math.max(0, n)) : 0; }
+function renderFiles() {
+  $('files').replaceChildren();
+  for (const doc of documents) {
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+    button.className = 'file' + (current === doc ? ' active' : '');
+    button.setAttribute('aria-pressed', String(current === doc));
+    const name = document.createElement('span'); name.textContent = doc.file.name;
+    const detail = document.createElement('small'); detail.textContent = (doc.file.size / 1024 / 1024).toFixed(2) + ' MB · 已记录 ' + progressFor(doc.key) + '%';
+    button.append(name, detail); button.addEventListener('click', () => selectDocument(doc));
+    li.append(button); $('files').append(li);
+  }
+  $('file-count').textContent = documents.length + ' 份';
+  $('files-empty').hidden = documents.length > 0;
+}
+function selectDocument(doc) {
+  current = doc;
+  $('document-title').textContent = doc.file.name;
+  $('welcome').hidden = true; $('pdf-viewer').hidden = false;
+  $('pdf-viewer').src = doc.url;
+  $('preview-note').hidden = false; $('open-pdf').hidden = false;
+  $('reading-progress').disabled = false;
+  const value = progressFor(doc.key);
+  $('reading-progress').value = value; $('progress-bar').value = value; $('progress-value').textContent = value + '%';
+  renderFiles(); notify('已选择：' + doc.file.name + '。阅读进度请使用下方滑块手动记录。');
+}
+async function importFiles(event) {
+  let added = 0, skipped = 0;
+  for (const file of event.target.files) {
+    if (!/\.pdf$/i.test(file.name) || file.size === 0) { skipped++; continue; }
+    try {
+      const signature = new TextDecoder().decode(await file.slice(0, 1024).arrayBuffer());
+      if (!signature.includes('%PDF-')) { skipped++; continue; }
+      const key = fileKey(file);
+      if (documents.some(doc => doc.key === key)) { skipped++; continue; }
+      documents.push({ file, key, url: URL.createObjectURL(file) }); added++;
+    } catch { skipped++; }
+  }
+  if (added && !current) selectDocument(documents[0]);
+  renderFiles(); event.target.value = '';
+  notify('已导入 ' + added + ' 份 PDF。' + (skipped ? '已跳过 ' + skipped + ' 份重复、空白或无法识别的文件。' : '') + ' 文件是否能够正常显示取决于 Chrome 内置阅读器。');
+}
+$('import').addEventListener('click', () => $('file-input').click());
+$('import-empty').addEventListener('click', () => $('file-input').click());
+$('file-input').addEventListener('change', importFiles);
+$('open-pdf').addEventListener('click', () => { if (current) window.open(current.url, '_blank', 'noopener'); });
+$('reading-progress').addEventListener('input', () => {
+  if (!current) return;
+  const value = Number($('reading-progress').value);
+  saved.progress[current.key] = value; persist();
+  $('progress-bar').value = value; $('progress-value').textContent = value + '%'; renderFiles();
+  notify('已记录当前文件阅读进度：' + value + '%。');
+});
+function renderWords() {
+  $('words').replaceChildren();
+  saved.words.forEach((entry, index) => {
+    const li = document.createElement('li'); li.className = 'word';
+    const title = document.createElement('strong'); title.textContent = entry.word;
+    const meaning = document.createElement('p'); meaning.textContent = entry.meaning || '暂未填写释义';
+    const remove = document.createElement('button'); remove.textContent = '移除'; remove.type = 'button'; remove.setAttribute('aria-label', '移除生词 ' + entry.word);
+    remove.addEventListener('click', () => { saved.words.splice(index, 1); persist(); renderWords(); notify('已移除生词：' + entry.word); });
+    li.append(title, meaning, remove); $('words').append(li);
+  });
+  $('word-count').textContent = saved.words.length + ' 个'; $('words-empty').hidden = saved.words.length > 0;
+}
+$('word-form').addEventListener('submit', event => {
+  event.preventDefault(); const word = $('word').value.trim(); const meaning = $('meaning').value.trim();
+  if (!word) { notify('请输入英文单词或短语。'); $('word').focus(); return; }
+  if (saved.words.some(entry => entry.word.toLowerCase() === word.toLowerCase())) { notify('这个单词已经在收藏中。'); return; }
+  saved.words.unshift({ word, meaning }); persist(); renderWords(); $('word-form').reset(); $('word').focus(); notify('已收藏：' + word);
+});
+window.addEventListener('pagehide', event => { if (!event.persisted) documents.forEach(doc => URL.revokeObjectURL(doc.url)); });
+renderWords(); renderFiles();
+notify('准备就绪。导入 PDF，即可开始学习。');
+</script>
 </body>
 </html>
