@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>我的第一个 AI 软件</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 24px; background: #f5f7fb; color: #172033; font-family: system-ui, sans-serif; }
+    main { width: 100%; text-align: center; }
+    h1 { font-size: clamp(26px, 6vw, 44px); margin: 0 0 28px; }
+    button { border: 0; border-radius: 12px; padding: 14px 28px; background: #3157dc; color: white; font: inherit; font-weight: 600; cursor: pointer; }
+    button:hover { background: #2445ba; }
+    button:focus-visible { outline: 3px solid #172033; outline-offset: 4px; }
+    #message { min-height: 28px; margin: 24px 0 0; color: #187044; font-size: 20px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>我的第一个 AI 软件</h1>
+    <button id="run-button" type="button">点击运行</button>
+    <p id="message" role="status" aria-live="polite"></p>
+  </main>
+  <script>
+    document.getElementById('run-button').addEventListener('click', () => {
+      document.getElementById('message').textContent = 'Codex 运行成功！';
+    });
+  </script>
+</body>
+</html>
